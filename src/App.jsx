@@ -45,6 +45,7 @@ const people = [
   { name: "Jason G. Valentine", role: "Professor & PI", img: "", url: "https://engineering.vanderbilt.edu/bio/jason-valentine" },
   { name: "Your Team Here", role: "Graduate & Undergraduate Researchers", img: "", url: "#people" },
 ];
+const jason = import.meta.env.BASE_URL + 'people/Jason-Valentine-Young.png';
 
 const publications = [
   { title: "Optical limiting based on Huygens’ metasurfaces", venue: "Nano Letters (2020)", url: "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c01261", tags: ["metasurfaces", "nonlinear"] },
@@ -71,7 +72,7 @@ export default function VanderbiltOpticsLabLanding() {
             <div className="h-9 w-9 rounded-lg" style={{ background: `conic-gradient(from 180deg at 50% 50%, ${colors.gold}, ${colors.flatGold}, ${colors.gold})` }} />
             <div className="leading-tight">
               <div className="text-sm text-zinc-300">Vanderbilt University</div>
-              <div className="font-semibold tracking-tight">Nanoscale Optics & Materials Lab</div>
+              <div className="font-semibold tracking-tight">NanOptics Lab</div>
             </div>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm">
@@ -118,7 +119,6 @@ export default function VanderbiltOpticsLabLanding() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/3] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-black/20" />
-              const jason = import.meta.env.BASE_URL + 'people/jason-valentine-young.png';
               <img alt="Lab hero" src={jason} className="h-full w-full object-cover" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-zinc-200">
                 <span>Young Jason Valentine • VINSE cleanroom </span>
