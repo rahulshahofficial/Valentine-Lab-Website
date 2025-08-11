@@ -19,10 +19,10 @@ const highlights = [
     href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
   {
-    title: "Three-dimensional optical metamaterial with a negative refractive index",
-    venue: "Nature(2008)",
-    cta: "Read paper",
-    href: "https://valentineoptics.github.io/LabWebsite/index.html",
+    title: "Professor Valentine Appointed as Vanderbilt's Oak Ridge National Laboratory Liaison",
+    venue: "",
+    cta: "Read more about the appointment here",
+    href: "https://news.vanderbilt.edu/2019/11/07/valentine-appointed-new-faculty-liaison-to-oak-ridge-national-lab/",
   },
   {
     title: "Three-dimensional optical metamaterial with a negative refractive index",
@@ -95,8 +95,9 @@ export default function VanderbiltOpticsLabLanding() {
               Engineering light with <span style={{ color: colors.flatGold }}>meta‑optics</span> & materials
             </motion.h1>
             <p className="mt-6 text-lg text-zinc-300 max-w-2xl">
-              We design, fabricate and deploy metasurfaces and computational imaging systems—from multilayer metalenses to
-              snapshot hyperspectral cameras—advancing sensing, imaging and photonic information processing.
+              We are a team of researchers interested in understanding how nanoscale structuring can be used to engineer a material's optical properties.
+              We are focused on using this understanding to develop novel materials for applications such as communications, imaging, optoelectronic devices, information processing, and energy conversion.
+              The lab is under the direction of Prof. Jason Valentine in the Mechanical Engineering Department at Vanderbilt University.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#research" className="rounded-xl px-5 py-3 font-medium bg-white/5 hover:bg-white/10">
