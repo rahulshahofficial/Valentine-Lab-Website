@@ -155,7 +155,7 @@ export default function VanderbiltOpticsLabLanding() {
             </div>
             <div className="mt-6 grid md:grid-cols-3 gap-4">
               {highlights.map((h) => (
-                <a key={h.title} href={h.href} className="rounded-xl border border-white/10 p-4 hover:bg-white/5 transition-colors">
+                <a key={h.title} href={h.href} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-white/10 p-4 hover:bg-white/5 transition-colors">
                   <div className="font-medium">{h.title}</div>
                   <div className="mt-2 text-sm text-zinc-400">{h.venue}</div>
                   <div className="mt-4 inline-flex items-center gap-1 text-sm" style={{ color: colors.flatGold }}>
@@ -173,7 +173,7 @@ export default function VanderbiltOpticsLabLanding() {
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Recent Publications</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             {publications.map((p) => (
-              <a key={p.title} href={p.url} className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.06] transition-colors">
+              <a key={p.title} href={p.url} target="_blank" rel="noopener noreferrer" className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.06] transition-colors">
                 <div className="font-medium leading-snug">{p.title}</div>
                 <div className="mt-2 text-sm text-zinc-400">{p.venue}</div>
                 <div className="mt-3 flex flex-wrap gap-2">
