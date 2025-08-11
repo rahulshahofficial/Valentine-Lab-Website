@@ -16,19 +16,19 @@ const highlights = [
     title: "Edge detection with meta-optics",
     venue: "Nature Photonics (2020)",
     cta: "Read paper",
-    href: "https://www.nature.com/articles/s41566-020-0609-3",
+    href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
   {
     title: "Multifunctional bilayer metaoptics",
     venue: "Light: Sci & Apps (2019)",
     cta: "Read paper",
-    href: "https://www.nature.com/articles/s41377-019-0180-7",
+    href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
   {
     title: "Multilayer non‑interacting dielectric metasurfaces",
     venue: "Nano Letters (2018)",
     cta: "Read paper",
-    href: "https://pubs.acs.org/doi/10.1021/acs.nanolett.8b03266",
+    href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
 ];
 
@@ -48,9 +48,9 @@ const people = [
 const jason = import.meta.env.BASE_URL + 'people/Jason-Valentine-Young.png';
 
 const publications = [
-  { title: "Optical limiting based on Huygens’ metasurfaces", venue: "Nano Letters (2020)", url: "https://pubs.acs.org/doi/10.1021/acs.nanolett.0c01261", tags: ["metasurfaces", "nonlinear"] },
-  { title: "Flat optics for image differentiation", venue: "Nature Photonics (2020)", url: "https://www.nature.com/articles/s41566-020-0609-3", tags: ["analog compute", "edge‑detection"] },
-  { title: "Dynamic all‑dielectric Huygens metasurfaces", venue: "Optica (2018)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-5-7-787&id=392430", tags: ["tunable", "huygens"] },
+  { title: "Optical limiting based on Huygens’ metasurfaces", venue: "Nano Letters (2020)", url: "https://valentineoptics.github.io/LabWebsite/index.html", tags: ["metasurfaces", "nonlinear"] },
+  { title: "Flat optics for image differentiation", venue: "Nature Photonics (2020)", url: "https://valentineoptics.github.io/LabWebsite/index.html", tags: ["analog compute", "edge‑detection"] },
+  { title: "Dynamic all‑dielectric Huygens metasurfaces", venue: "Optica (2018)", url: "https://valentineoptics.github.io/LabWebsite/index.html", tags: ["tunable", "huygens"] },
 ];
 
 const nav = [
