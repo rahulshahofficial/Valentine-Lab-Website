@@ -13,20 +13,20 @@ const colors = {
 
 const highlights = [
   {
-    title: "Edge detection with meta-optics",
-    venue: "Nature Photonics (2020)",
+    title: "Three-dimensional optical metamaterial with a negative refractive index",
+    venue: "Nature(2008)",
     cta: "Read paper",
     href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
   {
-    title: "Multifunctional bilayer metaoptics",
-    venue: "Light: Sci & Apps (2019)",
+    title: "Three-dimensional optical metamaterial with a negative refractive index",
+    venue: "Nature(2008)",
     cta: "Read paper",
     href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
   {
-    title: "Multilayer non‑interacting dielectric metasurfaces",
-    venue: "Nano Letters (2018)",
+    title: "Three-dimensional optical metamaterial with a negative refractive index",
+    venue: "Nature(2008)",
     cta: "Read paper",
     href: "https://valentineoptics.github.io/LabWebsite/index.html",
   },
@@ -48,9 +48,9 @@ const people = [
 const jason = import.meta.env.BASE_URL + 'people/Jason-Valentine-Young.png';
 
 const publications = [
-  { title: "Optical limiting based on Huygens’ metasurfaces", venue: "Nano Letters (2020)", url: "https://valentineoptics.github.io/LabWebsite/index.html", tags: ["metasurfaces", "nonlinear"] },
-  { title: "Flat optics for image differentiation", venue: "Nature Photonics (2020)", url: "https://valentineoptics.github.io/LabWebsite/index.html", tags: ["analog compute", "edge‑detection"] },
-  { title: "Dynamic all‑dielectric Huygens metasurfaces", venue: "Optica (2018)", url: "https://valentineoptics.github.io/LabWebsite/index.html", tags: ["tunable", "huygens"] },
+  { title: "Metasurface-enabled barcoding for compact flow cytometry", venue: "Optica (2024)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223", tags: ["metasurfaces", "nonlinear"] },
+  { title: "Metasurface-enabled barcoding for compact flow cytometry", venue: "Optica (2024)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223", tags: ["metasurfaces", "nonlinear"] },
+  { title: "Metasurface-enabled barcoding for compact flow cytometry", venue: "Optica (2024)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223", tags: ["metasurfaces", "nonlinear"]},
 ];
 
 const nav = [
