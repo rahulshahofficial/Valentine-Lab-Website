@@ -118,9 +118,10 @@ export default function VanderbiltOpticsLabLanding() {
           <div className="lg:col-span-5">
             <div className="relative aspect-[4/3] rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-black/20" />
-              <img alt="Lab hero" src="https://images.unsplash.com/photo-1581093588401-16ec97f0ee7b?q=80&w=1200&auto=format&fit=crop" className="h-full w-full object-cover" />
+              const jason = import.meta.env.BASE_URL + 'people/jason-valentine-young.png';
+              <img alt="Lab hero" src={jason} className="h-full w-full object-cover" />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-zinc-200">
-                <span>VINSE cleanroom • optical characterization</span>
+                <span>Young Jason Valentine • VINSE cleanroom </span>
                 <span className="px-2 py-1 rounded-md bg-black/40" style={{ border: `1px solid ${colors.flatGold}55` }}>Meta‑optics</span>
               </div>
             </div>
