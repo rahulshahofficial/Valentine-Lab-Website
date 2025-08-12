@@ -114,7 +114,7 @@ export default function VanderbiltOpticsLabLanding() {
             <div className="mt-10 flex items-center gap-6 text-sm text-zinc-400">
               <div className="flex items-center gap-2"><FlaskConical size={16} /> VINSE Nanofab</div>
               <div className="flex items-center gap-2"><Mic size={16} /> Optics & photonics</div>
-              <div className="flex items-center gap-2"><BookOpen size={16} /> ~200+ publications</div>
+              <div className="flex items-center gap-2"><BookOpen size={16} /> extra stuff</div>
             </div>
           </div>
           <div className="lg:col-span-5">
