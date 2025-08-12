@@ -17,18 +17,21 @@ const highlights = [
     venue: "Nature(2008)",
     cta: "Read paper",
     href: "https://valentineoptics.github.io/LabWebsite/index.html",
+    img: "highlights/negative-index.jpg"
   },
   {
     title: "Professor Valentine Appointed as Vanderbilt's Oak Ridge National Laboratory Liaison",
     venue: "",
     cta: "Read more about the appointment here",
     href: "https://news.vanderbilt.edu/2019/11/07/valentine-appointed-new-faculty-liaison-to-oak-ridge-national-lab/",
+    img: "highlights/negative-index.jpg"
   },
   {
     title: "Three-dimensional optical metamaterial with a negative refractive index",
     venue: "Nature(2008)",
     cta: "Read paper",
     href: "https://valentineoptics.github.io/LabWebsite/index.html",
+    img: "highlights/negative-index.jpg"
   },
 ];
 
@@ -47,11 +50,29 @@ const people = [
 ];
 const jason = import.meta.env.BASE_URL + 'people/Jason-Valentine-Young.png';
 
+const withBase = (p) => import.meta.env.BASE_URL + p;
+
 const publications = [
-  { title: "Metasurface-enabled barcoding for compact flow cytometry", venue: "Optica (2024)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223", tags: ["metasurfaces", "nonlinear"] },
-  { title: "Metasurface-enabled barcoding for compact flow cytometry", venue: "Optica (2024)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223", tags: ["metasurfaces", "nonlinear"] },
-  { title: "Metasurface-enabled barcoding for compact flow cytometry", venue: "Optica (2024)", url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223", tags: ["metasurfaces", "nonlinear"]},
-];
+  { title: "Metasurface-enabled barcoding for compact flow cytometry",
+   venue: "Optica (2024)",
+   url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223",
+   tags: ["metasurfaces", "nonlinear"],
+   img: "highlights/negative-index.jpg"
+  },
+  { title: "Metasurface-enabled barcoding for compact flow cytometry",
+   venue: "Optica (2024)",
+   url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223",
+   tags: ["metasurfaces", "nonlinear"],
+   img: "highlights/negative-index.jpg"
+  },
+  { title: "Metasurface-enabled barcoding for compact flow cytometry",
+   venue: "Optica (2024)",
+   url: "https://opg.optica.org/optica/fulltext.cfm?uri=optica-11-4-577&id=549223",
+   tags: ["metasurfaces", "nonlinear"],
+   img: "highlights/negative-index.jpg"
+  },
+
+  ];
 
 const nav = [
   { label: "Research", href: "#research" },
@@ -147,6 +168,7 @@ export default function VanderbiltOpticsLabLanding() {
         </div>
       </section>
 
+      {/* Highlights (now with manual thumbnails) */}
       <section className="py-4">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.02] p-6">
@@ -155,42 +177,92 @@ export default function VanderbiltOpticsLabLanding() {
               <h3 className="text-xl font-semibold">Highlights</h3>
             </div>
             <div className="mt-6 grid md:grid-cols-3 gap-4">
-              {highlights.map((h) => (
-                <a key={h.title} href={h.href} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-white/10 p-4 hover:bg-white/5 transition-colors">
-                  <div className="font-medium">{h.title}</div>
-                  <div className="mt-2 text-sm text-zinc-400">{h.venue}</div>
-                  <div className="mt-4 inline-flex items-center gap-1 text-sm" style={{ color: colors.flatGold }}>
-                    {h.cta} <ArrowRight size={16} />
-                  </div>
-                </a>
-              ))}
+              {highlights.map((h) => {
+                const imgSrc = h.img ? import.meta.env.BASE_URL + h.img : null; // works locally + on GitHub Pages
+                return (
+                  <a
+                    key={h.title}
+                    href={h.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl border border-white/10 overflow-hidden hover:bg-white/5 transition-colors"
+                  >
+                    {/* Thumbnail */}
+                    <div className="aspect-[16/9] bg-white/5">
+                      {imgSrc ? (
+                        <img src={imgSrc} alt={h.title} className="h-full w-full object-cover" loading="lazy" />
+                      ) : (
+                        <div className="h-full w-full grid place-items-center text-xs text-zinc-400">No preview</div>
+                      )}
+                    </div>
+
+                    {/* Text */}
+                    <div className="p-4">
+                      <div className="font-medium">{h.title}</div>
+                      <div className="mt-2 text-sm text-zinc-400">{h.venue}</div>
+                      <div className="mt-4 inline-flex items-center gap-1 text-sm" style={{ color: colors.flatGold }}>
+                        {h.cta} <ArrowRight size={16} />
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
+      {/* Publications with manual thumbnails */}
       <section id="publications" className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Recent Publications</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {publications.map((p) => (
-              <a key={p.title} href={p.url} target="_blank" rel="noopener noreferrer" className="block rounded-2xl border border-white/10 bg-white/[0.03] p-5 hover:bg-white/[0.06] transition-colors">
-                <div className="font-medium leading-snug">{p.title}</div>
-                <div className="mt-2 text-sm text-zinc-400">{p.venue}</div>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="text-[11px] px-2 py-1 rounded-md bg-white/5 border border-white/10 text-zinc-300">{t}</span>
-                  ))}
-                </div>
-                <div className="mt-4 inline-flex items-center gap-1 text-sm" style={{ color: colors.flatGold }}>Read →</div>
-              </a>
-            ))}
+            {publications.map((p) => {
+              const imgSrc = p.img ? withBase(p.img) : null;
+              return (
+                <a
+                  key={p.title}
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-2xl border border-white/10 overflow-hidden bg-white/[0.03] hover:bg-white/[0.06] transition-colors"
+                >
+                  {/* Thumb */}
+                  <div className="aspect-[16/9] bg-white/5">
+                    {imgSrc ? (
+                      <img src={imgSrc} alt={p.title} className="h-full w-full object-cover" loading="lazy" />
+                    ) : (
+                      <div className="h-full w-full grid place-items-center text-xs text-zinc-400">No preview</div>
+                    )}
+                  </div>
+
+                  {/* Text */}
+                  <div className="p-5">
+                    <div className="font-medium leading-snug">{p.title}</div>
+                    <div className="mt-2 text-sm text-zinc-400">{p.venue}</div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {p.tags.map((t) => (
+                        <span key={t} className="text-[11px] px-2 py-1 rounded-md bg-white/5 border border-white/10 text-zinc-300">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-4 inline-flex items-center gap-1 text-sm" style={{ color: colors.flatGold }}>
+                      Read →
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
           <div className="mt-6">
-            <a href="#" className="inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium bg-white/5 hover:bg-white/10">View all publications</a>
+            <a href="#" className="inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium bg-white/5 hover:bg-white/10">
+              View all publications
+            </a>
           </div>
         </div>
       </section>
+
 
       <section id="people" className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
