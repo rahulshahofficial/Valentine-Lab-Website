@@ -331,7 +331,7 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[0.06] backdrop-blur-xl bg-black/25">
+    <header className="border-b border-white/[0.06] bg-black/25">
       <div className={`${CONTAINER} py-4 flex items-center justify-between`}>
 
         <button onClick={() => navigate("home")} className="flex items-center gap-4 shrink-0">
