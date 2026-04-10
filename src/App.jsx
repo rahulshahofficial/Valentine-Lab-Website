@@ -287,6 +287,7 @@ const labLifePhotos = [
 // ║    headline: "Short headline",  // one sentence, plain text                 ║
 // ║    summary: "1–2 sentences.",   // brief description                        ║
 // ║    url: "https://...",          // link to paper/press release, or ""       ║
+// ║    img: base("news/photo.jpg"), // optional — upload to public/news/        ║
 // ║  },                                                                          ║
 // ╚══════════════════════════════════════════════════════════════════════════════╝
 const news = [
@@ -607,13 +608,21 @@ function HomePage({ navigate }) {
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {news.map((item, i) => (
               <a key={i} href={item.url} target="_blank" rel="noopener noreferrer"
-                className={`${CARD} group flex flex-col p-7`}>
-                <div className="text-sm text-zinc-500 font-medium">{item.date}</div>
-                <div className="mt-3 text-lg font-semibold leading-snug flex-1">{item.headline}</div>
-                <div className="mt-3 text-base text-zinc-400 leading-relaxed">{item.summary}</div>
-                <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ color: gold }}>
-                  Read more <ArrowRight size={14} />
+                className={`${CARD} group flex flex-col overflow-hidden`}>
+                {item.img && (
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img src={item.img} alt={item.headline}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  </div>
+                )}
+                <div className="flex flex-col flex-1 p-7">
+                  <div className="text-sm text-zinc-500 font-medium">{item.date}</div>
+                  <div className="mt-3 text-lg font-semibold leading-snug flex-1">{item.headline}</div>
+                  <div className="mt-3 text-base text-zinc-400 leading-relaxed">{item.summary}</div>
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{ color: gold }}>
+                    Read more <ArrowRight size={14} />
+                  </div>
                 </div>
               </a>
             ))}
