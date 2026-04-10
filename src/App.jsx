@@ -14,9 +14,29 @@ const base  = (p) => import.meta.env.BASE_URL + p;
 
 // ── Shared style tokens ────────────────────────────────────────────────────────
 const CONTAINER = "w-full max-w-[1800px] mx-auto px-6 sm:px-10 lg:px-20";
-const SECTION   = "py-20 md:py-28";
-const H2        = "text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight";
-const SUBHEAD   = "mt-5 text-xl md:text-2xl text-zinc-400 leading-relaxed";
+const SECTION   = "py-14 md:py-20";
+const H2        = "text-3xl md:text-4xl xl:text-5xl font-bold tracking-tight";
+const SUBHEAD   = "mt-4 text-lg md:text-xl text-zinc-400 leading-relaxed";
+
+// ── Smooth scroll (ease-out cubic) ────────────────────────────────────────────
+function smoothScrollTo(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const NAV = 72;
+  const target = el.getBoundingClientRect().top + window.scrollY - NAV;
+  const start  = window.scrollY;
+  const dist   = target - start;
+  const dur    = Math.min(900, Math.max(350, Math.abs(dist) * 0.45));
+  let t0 = null;
+  const ease = (t) => 1 - Math.pow(1 - t, 3); // fast start → slow finish
+  const step = (ts) => {
+    if (!t0) t0 = ts;
+    const p = Math.min((ts - t0) / dur, 1);
+    window.scrollTo(0, start + dist * ease(p));
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
 const CARD      = "rounded-2xl border border-white/[0.08] bg-white/[0.025] hover:bg-white/[0.05] hover:border-white/[0.14] transition-all duration-200";
 
 // ── Nav links ──────────────────────────────────────────────────────────────────
@@ -182,6 +202,16 @@ const news = [
 // NAV (shared)
 // ══════════════════════════════════════════════════════════════════════════════
 function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
+  // Navigate to home then smooth-scroll to section id
+  function goSection(id) {
+    if (page !== "home") {
+      navigate("home");
+      setTimeout(() => smoothScrollTo(id), 320);
+    } else {
+      smoothScrollTo(id);
+    }
+  }
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.06] backdrop-blur-xl bg-black/25">
       <div className={`${CONTAINER} py-4 flex items-center justify-between`}>
@@ -200,27 +230,26 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
           {mainNav.map((n) =>
             n.page ? (
               <button key={n.label} onClick={() => navigate(n.page)}
-                className={`text-lg transition-colors duration-150 ${page === n.page ? "text-white font-semibold" : "text-zinc-400 hover:text-white"}`}>
+                className={`text-base transition-colors duration-150 ${page === n.page ? "text-white font-semibold" : "text-zinc-400 hover:text-white"}`}>
                 {n.label}
               </button>
             ) : (
-              <a key={n.label} href={n.href}
-                className="text-lg text-zinc-400 hover:text-white transition-colors duration-150"
-                onClick={() => page !== "home" && navigate("home")}>
+              <button key={n.label} onClick={() => goSection(n.href.slice(1))}
+                className="text-base text-zinc-400 hover:text-white transition-colors duration-150">
                 {n.label}
-              </a>
+              </button>
             )
           )}
           <a href="https://lab-paper-bot.onrender.com/" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-lg text-zinc-400 hover:text-white transition-colors duration-150">
-            <BookOpen size={17} /> Lab Papers
+            className="inline-flex items-center gap-2 text-base text-zinc-400 hover:text-white transition-colors duration-150">
+            <BookOpen size={16} /> Lab Papers
           </a>
-          <a href="#prospective"
-            className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-base font-bold transition hover:opacity-90"
-            style={{ backgroundColor: gold, color: "#1C1C1C" }}
-            onClick={() => page !== "home" && navigate("home")}>
-            Join the Lab <ArrowRight size={16} />
-          </a>
+          <button
+            onClick={() => goSection("prospective")}
+            className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition hover:opacity-90"
+            style={{ backgroundColor: gold, color: "#1C1C1C" }}>
+            Join the Lab <ArrowRight size={15} />
+          </button>
         </nav>
 
         <button className="md:hidden p-2 rounded-xl text-zinc-300 hover:bg-white/10 transition"
@@ -239,26 +268,26 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
               {mainNav.map((n) =>
                 n.page ? (
                   <button key={n.label} onClick={() => { navigate(n.page); setMobileOpen(false); }}
-                    className="py-3 px-4 rounded-xl text-lg text-zinc-300 hover:text-white hover:bg-white/10 transition text-left">
+                    className="py-3 px-4 rounded-xl text-base text-zinc-300 hover:text-white hover:bg-white/10 transition text-left">
                     {n.label}
                   </button>
                 ) : (
-                  <a key={n.label} href={n.href} onClick={() => setMobileOpen(false)}
-                    className="py-3 px-4 rounded-xl text-lg text-zinc-300 hover:text-white hover:bg-white/10 transition">
+                  <button key={n.label} onClick={() => { goSection(n.href.slice(1)); setMobileOpen(false); }}
+                    className="py-3 px-4 rounded-xl text-base text-zinc-300 hover:text-white hover:bg-white/10 transition text-left">
                     {n.label}
-                  </a>
+                  </button>
                 )
               )}
               <a href="https://lab-paper-bot.onrender.com/" target="_blank" rel="noopener noreferrer"
                 onClick={() => setMobileOpen(false)}
-                className="py-3 px-4 rounded-xl text-lg text-zinc-300 hover:text-white hover:bg-white/10 transition flex items-center gap-2">
-                <BookOpen size={17} /> Lab Papers
+                className="py-3 px-4 rounded-xl text-base text-zinc-300 hover:text-white hover:bg-white/10 transition flex items-center gap-2">
+                <BookOpen size={16} /> Lab Papers
               </a>
-              <a href="#prospective" onClick={() => setMobileOpen(false)}
-                className="mt-2 text-center rounded-xl px-5 py-3 text-base font-bold"
+              <button onClick={() => { goSection("prospective"); setMobileOpen(false); }}
+                className="mt-2 text-center rounded-xl px-5 py-3 text-sm font-bold"
                 style={{ backgroundColor: gold, color: "#1C1C1C" }}>
                 Join the Lab
-              </a>
+              </button>
             </div>
           </motion.div>
         )}
@@ -406,19 +435,19 @@ function HomePage({ navigate }) {
                 sensing, and energy conversion.
               </p>
               <div className="mt-10 flex flex-wrap gap-4">
-                <a href="#research"
-                  className="rounded-xl px-7 py-3.5 text-lg font-medium bg-white/[0.08] hover:bg-white/[0.14] transition border border-white/10">
+                <button onClick={() => smoothScrollTo("research")}
+                  className="rounded-xl px-7 py-3.5 text-base font-medium bg-white/[0.08] hover:bg-white/[0.14] transition border border-white/10">
                   Explore research
-                </a>
-                <a href="#publications"
-                  className="rounded-xl px-7 py-3.5 text-lg font-medium border border-white/15 hover:border-white/30 transition">
+                </button>
+                <button onClick={() => smoothScrollTo("publications")}
+                  className="rounded-xl px-7 py-3.5 text-base font-medium border border-white/15 hover:border-white/30 transition">
                   Publications
-                </a>
-                <a href="#prospective"
-                  className="rounded-xl px-7 py-3.5 text-lg font-medium transition hover:opacity-90"
+                </button>
+                <button onClick={() => smoothScrollTo("prospective")}
+                  className="rounded-xl px-7 py-3.5 text-base font-medium transition hover:opacity-90"
                   style={{ backgroundColor: gold, color: "#1C1C1C" }}>
                   Open positions
-                </a>
+                </button>
               </div>
               <div className="mt-12 flex flex-wrap gap-8 text-base text-zinc-500">
                 <span className="flex items-center gap-2"><FlaskConical size={18} /> VINSE Nanofabrication</span>
@@ -461,6 +490,27 @@ function HomePage({ navigate }) {
                 <div className="text-xl md:text-2xl font-semibold">{r.name}</div>
                 <div className="mt-3 text-lg text-zinc-400 leading-relaxed">{r.blurb}</div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEWS ──────────────────────────────────────────────────────────── */}
+      <section id="news" className={`${SECTION} border-t border-white/[0.05]`}>
+        <div className={CONTAINER}>
+          <h2 className={H2}>News</h2>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {news.map((item, i) => (
+              <a key={i} href={item.url} target="_blank" rel="noopener noreferrer"
+                className={`${CARD} group flex flex-col p-7`}>
+                <div className="text-sm text-zinc-500 font-medium">{item.date}</div>
+                <div className="mt-3 text-lg font-semibold leading-snug flex-1">{item.headline}</div>
+                <div className="mt-3 text-base text-zinc-400 leading-relaxed">{item.summary}</div>
+                <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ color: gold }}>
+                  Read more <ArrowRight size={14} />
+                </div>
+              </a>
             ))}
           </div>
         </div>
@@ -678,27 +728,6 @@ function HomePage({ navigate }) {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── NEWS ──────────────────────────────────────────────────────────── */}
-      <section id="news" className={`${SECTION} border-t border-white/[0.05]`}>
-        <div className={CONTAINER}>
-          <h2 className={H2}>News</h2>
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {news.map((item, i) => (
-              <a key={i} href={item.url} target="_blank" rel="noopener noreferrer"
-                className={`${CARD} group flex flex-col p-8`}>
-                <div className="text-base text-zinc-500 font-medium">{item.date}</div>
-                <div className="mt-3 text-xl font-semibold leading-snug flex-1">{item.headline}</div>
-                <div className="mt-3 text-lg text-zinc-400 leading-relaxed">{item.summary}</div>
-                <div className="mt-6 inline-flex items-center gap-2 text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ color: gold }}>
-                  Read more <ArrowRight size={16} />
-                </div>
-              </a>
-            ))}
           </div>
         </div>
       </section>
