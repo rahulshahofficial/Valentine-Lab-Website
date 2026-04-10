@@ -113,10 +113,14 @@ const people = [
     url: "https://engineering.vanderbilt.edu/bio/jason-valentine",
     bio: "B.S. Purdue (2004) · Ph.D. UC Berkeley (2010) · NSF CAREER Award · ONR Young Investigator Award · ORNL Faculty Liaison",
   },
-  { name: "Rahul Shah",  role: "Ph.D. Student",    dept: "Mechanical Engineering",                  img: "", url: "" },
-  { name: "Chris",       role: "Ph.D. Student",    dept: "",                                        img: "", url: "" },
-  { name: "Brandon",     role: "Ph.D. Candidate",  dept: "",                                        img: "", url: "" },
-  { name: "Carson",      role: "Ph.D. Student",    dept: "",                                        img: "", url: "" },
+  {
+    name: "Brandon Swartz",
+    role: "Ph.D. Candidate",
+    dept: "Mechanical Engineering",
+    img: "",
+    url: "",
+    bio: "Be cool",
+  },
   {
     name: "Tao Hong",
     role: "Ph.D. Candidate",
@@ -125,6 +129,31 @@ const people = [
     url: "",
     bio: "Research: Metasurface-integrated microfluidics for next-generation flow cytometry.",
   },
+  {
+    name: "Rahul Shah",
+    role: "Ph.D. Student",
+    dept: "Interdisciplinary Materials Science",
+    img: "",
+    url: "",
+    bio: "Research: Metasurface-enabled hyperspectral imaging",
+  },
+  {
+    name: "Chris Boyd",
+    role: "Ph.D. Student",
+    dept: "Mechanical Engineering",
+    img: "",
+    url: "",
+    bio: "Be lame",
+  },
+  {
+    name: "Carson Snow",
+    role: "Ph.D. Student",
+    dept: "Interdisciplinary Materials Science",
+    img: "",
+    url: "",
+    bio: "Just be",
+  },
+  
 ];
 
 // ── News ───────────────────────────────────────────────────────────────────────
