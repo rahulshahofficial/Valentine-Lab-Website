@@ -4,7 +4,7 @@ import {
   ArrowRight, BookOpen, FlaskConical, Newspaper,
   MapPin, Cpu, ScanLine, Globe, Grid, Telescope,
   Award, ExternalLink, Menu, X, Mail, Phone,
-  ArrowLeft, Users, Search,
+  ArrowLeft, Users,
 } from "lucide-react";
 
 // ── Theme & helpers ────────────────────────────────────────────────────────────
@@ -240,10 +240,6 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
               </button>
             )
           )}
-          <a href="https://lab-paper-bot.onrender.com/" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-base text-zinc-400 hover:text-white transition-colors duration-150">
-            <BookOpen size={16} /> Lab Papers
-          </a>
           <button
             onClick={() => goSection("prospective")}
             className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold transition hover:opacity-90"
@@ -278,11 +274,6 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
                   </button>
                 )
               )}
-              <a href="https://lab-paper-bot.onrender.com/" target="_blank" rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-                className="py-3 px-4 rounded-xl text-base text-zinc-300 hover:text-white hover:bg-white/10 transition flex items-center gap-2">
-                <BookOpen size={16} /> Lab Papers
-              </a>
               <button onClick={() => { goSection("prospective"); setMobileOpen(false); }}
                 className="mt-2 text-center rounded-xl px-5 py-3 text-sm font-bold"
                 style={{ backgroundColor: gold, color: "#1C1C1C" }}>
@@ -591,55 +582,6 @@ function HomePage({ navigate }) {
         </div>
       </section>
 
-      {/* ── LAB PAPER BOT ─────────────────────────────────────────────────── */}
-      <section className={`${SECTION} border-t border-white/[0.05]`}>
-        <div className={CONTAINER}>
-          <div className={`${CARD} p-8 md:p-12`}
-            style={{ background: `linear-gradient(135deg, ${gold}0d, transparent 60%)` }}>
-            <div className="grid lg:grid-cols-3 gap-10 items-center">
-              <div className="lg:col-span-2">
-                <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border mb-6"
-                  style={{ borderColor: `${gold}50`, color: gold }}>
-                  Lab Resource
-                </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">Lab Paper Bot</h2>
-                <p className="mt-5 text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-2xl">
-                  Browse, search, and track the latest research from the Valentine Lab
-                  and the broader meta-optics community. AI-powered semantic search,
-                  updated daily from arXiv and author feeds.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a href="https://lab-paper-bot.onrender.com/" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-lg font-bold transition hover:opacity-90"
-                    style={{ backgroundColor: gold, color: "#1C1C1C" }}>
-                    Open Lab Paper Bot <ArrowRight size={18} />
-                  </a>
-                  <a href="https://lab-paper-bot.onrender.com/search" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-lg font-medium border border-white/20 hover:border-white/40 transition">
-                    <Search size={18} /> Search Papers
-                  </a>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4">
-                {[
-                  ["📄", "Daily arXiv feed", "New papers every morning"],
-                  ["✨", "AI semantic search", "Find papers by description"],
-                  ["👥", "Author tracking",   "Follow lab members' work"],
-                ].map(([icon, title, desc]) => (
-                  <div key={title} className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                    <span className="text-2xl">{icon}</span>
-                    <div>
-                      <div className="text-base font-semibold">{title}</div>
-                      <div className="text-sm text-zinc-500 mt-0.5">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── PEOPLE TEASER ─────────────────────────────────────────────────── */}
       <section id="people" className={`${SECTION} border-t border-white/[0.05]`}>
         <div className={CONTAINER}>
@@ -776,7 +718,6 @@ function HomePage({ navigate }) {
                   ["Google Scholar", "https://scholar.google.com/citations?user=6yh8YJgAAAAJ"],
                   ["Faculty Profile", "https://engineering.vanderbilt.edu/bio/jason-valentine"],
                   ["VINSE", "https://www.vanderbilt.edu/vinse/"],
-                  ["Lab Paper Bot", "https://lab-paper-bot.onrender.com/"],
                 ].map(([label, href]) => (
                   <a key={label} href={href} target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-2 text-zinc-400 hover:text-white transition">
