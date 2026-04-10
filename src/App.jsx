@@ -7,6 +7,22 @@ import {
   ArrowLeft, Users,
 } from "lucide-react";
 
+// ╔══════════════════════════════════════════════════════════════════════════════╗
+// ║                       WEBSITE CONTENT GUIDE                                 ║
+// ║  All editable content lives in clearly marked sections below.               ║
+// ║  Search (Ctrl/Cmd+F) for these labels to jump straight to each section:     ║
+// ║                                                                              ║
+// ║  📰 CONTENT: NEWS           → update news headlines & summaries             ║
+// ║  📄 CONTENT: RECENT PAPERS  → add/remove recent publications                ║
+// ║  🏆 CONTENT: LANDMARK PAPERS→ foundational papers (rarely changes)          ║
+// ║  👥 CONTENT: PEOPLE         → add/remove lab members & update bios          ║
+// ║  📸 CONTENT: LAB LIFE PHOTOS→ add group photos                              ║
+// ║  🔢 CONTENT: HERO STATS     → update publication count / awards badge       ║
+// ║                                                                              ║
+// ║  After editing, run:  npm run build                                          ║
+// ║  Then commit & push the docs/ folder for changes to go live.                ║
+// ╚══════════════════════════════════════════════════════════════════════════════╝
+
 // ── Theme & helpers ────────────────────────────────────────────────────────────
 const gold  = "#CFAE70";
 const goldD = "#B49248";
@@ -58,7 +74,21 @@ const research = [
   { icon: Globe,        name: "Applications",                    blurb: "SWIR/MWIR sensing, nonlinear photonics, thermal emission control, flow cytometry, and integrated optoelectronic devices." },
 ];
 
-// ── Publications ───────────────────────────────────────────────────────────────
+// ╔══════════════════════════════════════════════════════════════════════════════╗
+// ║  🏆 CONTENT: LANDMARK PAPERS                                                 ║
+// ║  High-impact foundational papers — rarely needs changing.                    ║
+// ║  Reorder items to change display order. Keep to ~4 entries.                  ║
+// ║                                                                              ║
+// ║  To add an entry, copy this template:                                        ║
+// ║  {                                                                           ║
+// ║    title: "Full paper title",                                                ║
+// ║    authors: "A. Author, B. Author, J. Valentine",                            ║
+// ║    venue: "Nature",  year: "2024",                                           ║
+// ║    url: "https://doi.org/...",                                               ║
+// ║    note: "Cover Article",  // optional — award/coverage note                ║
+// ║    tags: ["keyword1", "keyword2"],                                           ║
+// ║  },                                                                          ║
+// ╚══════════════════════════════════════════════════════════════════════════════╝
 const landmarkPapers = [
   {
     title: "Three-dimensional optical metamaterial exhibiting negative refractive index",
@@ -92,7 +122,25 @@ const landmarkPapers = [
   },
 ];
 
+// ╔══════════════════════════════════════════════════════════════════════════════╗
+// ║  📄 CONTENT: RECENT PAPERS                                                   ║
+// ║  Add newest papers at the TOP. Aim to keep ~4–6 entries.                     ║
+// ║  When a paper becomes old, move it out or delete it.                         ║
+// ║                                                                              ║
+// ║  Copy this template and fill in your values:                                 ║
+// ║                                                                              ║
+// ║  {                                                                           ║
+// ║    title: "Full paper title",                                                ║
+// ║    authors: "A. Author, B. Author, J. Valentine",                            ║
+// ║    venue: "Nature Photonics",  year: "2025",                                 ║
+// ║    url: "https://doi.org/10.xxxx/xxxxx",                                     ║
+// ║    tags: ["keyword1", "keyword2", "keyword3"],                               ║
+// ║  },                                                                          ║
+// ╚══════════════════════════════════════════════════════════════════════════════╝
 const recentPapers = [
+  // ── ADD NEW PAPERS HERE ↓ (paste template above, newest first) ────────────────
+
+  // ─────────────────────────────────────────────────────────────────────────────
   {
     title: "ExtremeMETA: High-speed lightweight image segmentation model by remodeling multi-channel metamaterial imagers",
     authors: "Q. Liu, B. T. Swartz, I. I. Kravchenko, J. Valentine, Y. Huo",
@@ -123,7 +171,28 @@ const recentPapers = [
   },
 ];
 
-// ── People ─────────────────────────────────────────────────────────────────────
+// ╔══════════════════════════════════════════════════════════════════════════════╗
+// ║  👥 CONTENT: PEOPLE                                                          ║
+// ║  Keep Jason Valentine FIRST — he always appears at the top.                 ║
+// ║  Add new members at the END of the array (before the closing "]").          ║
+// ║  Remove graduated members by deleting their entry.                           ║
+// ║                                                                              ║
+// ║  Copy this template for a new member:                                        ║
+// ║  {                                                                           ║
+// ║    name: "First Last",                                                       ║
+// ║    role: "Ph.D. Student",   // Ph.D. Student / Ph.D. Candidate / Postdoc    ║
+// ║    dept: "Mechanical Engineering",                                           ║
+// ║    img:  base("people/filename.png"),  // upload photo to public/people/    ║
+// ║          // — OR leave img: "" for a "Photo coming soon" placeholder        ║
+// ║    url:  "",                // personal/profile page link, or ""            ║
+// ║    bio:  "Research focus in one sentence.",                                  ║
+// ║  },                                                                          ║
+// ║                                                                              ║
+// ║  ADDING A PHOTO:                                                             ║
+// ║    1. Rename photo to something like "firstname-lastname.png"                ║
+// ║    2. Upload it to the  public/people/  folder in this repo                 ║
+// ║    3. Set img: base("people/firstname-lastname.png")  in the entry below    ║
+// ╚══════════════════════════════════════════════════════════════════════════════╝
 const people = [
   {
     name: "Jason G. Valentine",
@@ -173,11 +242,57 @@ const people = [
     url: "",
     bio: "Just be",
   },
-  
+  // ── ADD NEW MEMBERS HERE ↓ ────────────────────────────────────────────────────
+  // {
+  //   name: "First Last",
+  //   role: "Ph.D. Student",
+  //   dept: "Mechanical Engineering",
+  //   img:  "",
+  //   url:  "",
+  //   bio:  "Research focus in one sentence.",
+  // },
+  // ─────────────────────────────────────────────────────────────────────────────
 ];
 
-// ── News ───────────────────────────────────────────────────────────────────────
+// ╔══════════════════════════════════════════════════════════════════════════════╗
+// ║  📸 CONTENT: LAB LIFE PHOTOS                                                 ║
+// ║  Add real photos by replacing entries below.                                 ║
+// ║                                                                              ║
+// ║  For each photo:                                                             ║
+// ║    1. Upload image to the  public/lab-life/  folder in this repo            ║
+// ║    2. Change  img: ""  to  img: base("lab-life/your-photo.jpg")             ║
+// ║                                                                              ║
+// ║  Leave  img: ""  to keep a placeholder tile until you have a real photo.    ║
+// ║  Add or remove entries to change the number of tiles shown.                 ║
+// ╚══════════════════════════════════════════════════════════════════════════════╝
+const labLifePhotos = [
+  // ── REPLACE img: "" WITH A REAL PATH ONCE YOU HAVE PHOTOS ────────────────────
+  { label: "Group Outing",     img: "" },
+  { label: "Cleanroom Work",   img: "" },
+  { label: "Lab Meeting",      img: "" },
+  { label: "Conference Trip",  img: "" },
+  { label: "Celebration",      img: "" },
+  { label: "Friday Afternoon", img: "" },
+  // To add more: { label: "Your Caption", img: base("lab-life/photo.jpg") },
+];
+
+// ╔══════════════════════════════════════════════════════════════════════════════╗
+// ║  📰 CONTENT: NEWS                                                            ║
+// ║  Add new items at the TOP of this array. Keep ~3–5 items total.             ║
+// ║                                                                              ║
+// ║  Copy this template and fill in your values:                                 ║
+// ║                                                                              ║
+// ║  {                                                                           ║
+// ║    date: "April 2025",          // month + year, or just "2025"             ║
+// ║    headline: "Short headline",  // one sentence, plain text                 ║
+// ║    summary: "1–2 sentences.",   // brief description                        ║
+// ║    url: "https://...",          // link to paper/press release, or ""       ║
+// ║  },                                                                          ║
+// ╚══════════════════════════════════════════════════════════════════════════════╝
 const news = [
+  // ── ADD NEW ITEMS HERE ↓ (paste template above, newest first) ─────────────────
+
+  // ─────────────────────────────────────────────────────────────────────────────
   {
     date: "2025",
     headline: "ExtremeMETA: metamaterial-based image segmentation published",
@@ -351,24 +466,22 @@ function PeoplePage({ navigate }) {
             Research is better together — from cleanroom sessions to group outings.
           </p>
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              "Group Outing",
-              "Cleanroom Work",
-              "Lab Meeting",
-              "Conference Trip",
-              "Celebration",
-              "Friday Afternoon",
-            ].map((label) => (
-              <div key={label}
-                className="aspect-[4/3] rounded-2xl border border-white/[0.08] bg-white/[0.025] flex flex-col items-center justify-center gap-3 text-zinc-600">
-                <div className="text-3xl">📸</div>
-                <div className="text-base font-medium">{label}</div>
-                <div className="text-sm text-zinc-700">Photo coming soon</div>
+            {labLifePhotos.map(({ label, img }) => (
+              <div key={label} className="aspect-[4/3] rounded-2xl border border-white/[0.08] bg-white/[0.025] overflow-hidden">
+                {img ? (
+                  <img src={img} alt={label} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-zinc-600">
+                    <div className="text-3xl">📸</div>
+                    <div className="text-base font-medium">{label}</div>
+                    <div className="text-sm text-zinc-700">Photo coming soon</div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
           <p className="mt-8 text-base text-zinc-600">
-            Add photos by uploading images to <code className="text-zinc-500">public/lab-life/</code> and updating the gallery here.
+            To add photos: upload images to <code className="text-zinc-500">public/lab-life/</code>, then update the <code className="text-zinc-500">labLifePhotos</code> array near the top of <code className="text-zinc-500">src/App.jsx</code>.
           </p>
         </div>
       </section>
@@ -440,9 +553,10 @@ function HomePage({ navigate }) {
                   Open positions
                 </button>
               </div>
+              {/* 🔢 CONTENT: HERO STATS — update the numbers/badges below as needed */}
               <div className="mt-12 flex flex-wrap gap-8 text-base text-zinc-500">
                 <span className="flex items-center gap-2"><FlaskConical size={18} /> VINSE Nanofabrication</span>
-                <span className="flex items-center gap-2"><BookOpen size={18} /> 36+ publications</span>
+                <span className="flex items-center gap-2"><BookOpen size={18} /> 36+ publications</span>{/* ← update count */}
                 <span className="flex items-center gap-2"><Award size={18} /> NSF CAREER · ONR YIP</span>
               </div>
             </motion.div>
