@@ -30,9 +30,9 @@ const base  = (p) => import.meta.env.BASE_URL + p;
 
 // ── Shared style tokens ────────────────────────────────────────────────────────
 const CONTAINER = "w-full max-w-[1800px] mx-auto px-6 sm:px-10 lg:px-20";
-const SECTION   = "py-14 md:py-20";
-const H2        = "text-3xl md:text-4xl xl:text-5xl font-bold tracking-tight";
-const SUBHEAD   = "mt-4 text-lg md:text-xl text-zinc-400 leading-relaxed";
+const SECTION   = "py-10 md:py-14";
+const H2        = "text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight";
+const SUBHEAD   = "mt-3 text-base md:text-lg text-zinc-400 leading-relaxed";
 
 // ── Smooth scroll (ease-out cubic) ────────────────────────────────────────────
 function smoothScrollTo(id) {
@@ -523,44 +523,44 @@ function HomePage({ navigate }) {
   return (
     <>
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="w-full pt-16 pb-24 md:pt-20 md:pb-32">
-        <div className={`${CONTAINER} grid lg:grid-cols-12 gap-12 items-center`}>
+      <section className="w-full pt-12 pb-16 md:pt-16 md:pb-24">
+        <div className={`${CONTAINER} grid lg:grid-cols-12 gap-10 items-center`}>
           <div className="lg:col-span-7">
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
-              <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest px-4 py-2 rounded-full border mb-7"
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border mb-5"
                 style={{ borderColor: `${gold}50`, color: gold }}>
                 Vanderbilt University · Mechanical Engineering
               </div>
-              <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05]">
+              <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.05]">
                 Engineering light<br />with{" "}
                 <span style={{ color: gold }}>meta-optics</span>
                 <br />&amp; materials
               </h1>
-              <p className="mt-7 text-xl md:text-2xl text-zinc-400 max-w-2xl leading-relaxed">
+              <p className="mt-5 text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
                 We study how nanoscale structuring engineers a material's optical
                 properties — building platforms for imaging, communications,
                 sensing, and energy conversion.
               </p>
-              <div className="mt-10 flex flex-wrap gap-4">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <button onClick={() => smoothScrollTo("research")}
-                  className="rounded-xl px-7 py-3.5 text-base font-medium bg-white/[0.08] hover:bg-white/[0.14] transition border border-white/10">
+                  className="rounded-xl px-5 py-2.5 text-sm font-medium bg-white/[0.08] hover:bg-white/[0.14] transition border border-white/10">
                   Explore research
                 </button>
                 <button onClick={() => smoothScrollTo("publications")}
-                  className="rounded-xl px-7 py-3.5 text-base font-medium border border-white/15 hover:border-white/30 transition">
+                  className="rounded-xl px-5 py-2.5 text-sm font-medium border border-white/15 hover:border-white/30 transition">
                   Publications
                 </button>
                 <button onClick={() => smoothScrollTo("prospective")}
-                  className="rounded-xl px-7 py-3.5 text-base font-medium transition hover:opacity-90"
+                  className="rounded-xl px-5 py-2.5 text-sm font-medium transition hover:opacity-90"
                   style={{ backgroundColor: gold, color: "#1C1C1C" }}>
                   Open positions
                 </button>
               </div>
               {/* 🔢 CONTENT: HERO STATS — update the numbers/badges below as needed */}
-              <div className="mt-12 flex flex-wrap gap-8 text-base text-zinc-500">
-                <span className="flex items-center gap-2"><FlaskConical size={18} /> VINSE Nanofabrication</span>
-                <span className="flex items-center gap-2"><BookOpen size={18} /> 36+ publications</span>{/* ← update count */}
-                <span className="flex items-center gap-2"><Award size={18} /> NSF CAREER · ONR YIP</span>
+              <div className="mt-8 flex flex-wrap gap-6 text-sm text-zinc-500">
+                <span className="flex items-center gap-2"><FlaskConical size={15} /> VINSE Nanofabrication</span>
+                <span className="flex items-center gap-2"><BookOpen size={15} /> 36+ publications</span>{/* ← update count */}
+                <span className="flex items-center gap-2"><Award size={15} /> NSF CAREER · ONR YIP</span>
               </div>
             </motion.div>
           </div>
@@ -591,12 +591,12 @@ function HomePage({ navigate }) {
           <p className={`${SUBHEAD} max-w-2xl`}>
             Spanning design, fabrication, and computation — from flat optics to learned reconstruction.
           </p>
-          <div className="mt-12 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-4">
             {research.map((r) => (
-              <div key={r.name} className={`${CARD} group p-8 md:p-9`}>
-                <r.icon className="mb-5 opacity-60 group-hover:opacity-100 transition-opacity" size={30} style={{ color: gold }} />
-                <div className="text-xl md:text-2xl font-semibold">{r.name}</div>
-                <div className="mt-3 text-lg text-zinc-400 leading-relaxed">{r.blurb}</div>
+              <div key={r.name} className={`${CARD} group p-6`}>
+                <r.icon className="mb-3 opacity-60 group-hover:opacity-100 transition-opacity" size={22} style={{ color: gold }} />
+                <div className="text-base font-semibold">{r.name}</div>
+                <div className="mt-2 text-sm text-zinc-400 leading-relaxed">{r.blurb}</div>
               </div>
             ))}
           </div>
@@ -607,23 +607,28 @@ function HomePage({ navigate }) {
       <section id="news" className={`${SECTION} border-t border-white/[0.05]`}>
         <div className={CONTAINER}>
           <h2 className={H2}>News</h2>
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
+          <div className="mt-8 grid md:grid-cols-3 gap-4">
             {news.map((item, i) => (
               <a key={i} href={item.url} target="_blank" rel="noopener noreferrer"
                 className={`${CARD} group flex flex-col overflow-hidden`}>
-                {item.img && (
-                  <div className="aspect-[16/9] overflow-hidden">
+                {/* Image area — always shown */}
+                <div className="h-36 overflow-hidden bg-zinc-900">
+                  {item.img ? (
                     <img src={item.img} alt={item.headline}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-                  </div>
-                )}
-                <div className="flex flex-col flex-1 p-7">
-                  <div className="text-sm text-zinc-500 font-medium">{item.date}</div>
-                  <div className="mt-3 text-lg font-semibold leading-snug flex-1">{item.headline}</div>
-                  <div className="mt-3 text-base text-zinc-400 leading-relaxed">{item.summary}</div>
-                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-zinc-700 text-sm gap-2">
+                      <Newspaper size={18} /> Photo coming soon
+                    </div>
+                  )}
+                </div>
+                <div className="flex flex-col flex-1 p-5">
+                  <div className="text-xs text-zinc-500 font-medium">{item.date}</div>
+                  <div className="mt-2 text-sm font-semibold leading-snug flex-1">{item.headline}</div>
+                  <div className="mt-2 text-xs text-zinc-400 leading-relaxed">{item.summary}</div>
+                  <div className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ color: gold }}>
-                    Read more <ArrowRight size={14} />
+                    Read more <ArrowRight size={12} />
                   </div>
                 </div>
               </a>
@@ -637,48 +642,48 @@ function HomePage({ navigate }) {
         <div className={CONTAINER}>
 
           {/* Landmark */}
-          <div className="flex flex-wrap items-end justify-between gap-4 mb-10">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
             <div>
               <h2 className={H2}>Landmark Papers</h2>
               <p className={`${SUBHEAD} max-w-xl`}>Foundational work that defined the field.</p>
             </div>
             <a href="https://scholar.google.com/citations?user=6yh8YJgAAAAJ"
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-base font-medium bg-white/[0.05] hover:bg-white/[0.10] border border-white/10 transition">
-              <ExternalLink size={16} /> All on Google Scholar
+              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium bg-white/[0.05] hover:bg-white/[0.10] border border-white/10 transition">
+              <ExternalLink size={14} /> All on Google Scholar
             </a>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mb-20">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {landmarkPapers.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer"
                 className={`${CARD} group flex flex-col overflow-hidden`}>
                 {/* Figure / image area */}
-                <div className="aspect-square bg-zinc-900 overflow-hidden">
+                <div className="aspect-[4/3] bg-zinc-900 overflow-hidden">
                   {p.img ? (
                     <img src={p.img} alt={p.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-zinc-700">
-                      <div className="text-4xl">🔬</div>
-                      <div className="text-sm">Figure coming soon</div>
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-1.5 text-zinc-700">
+                      <div className="text-2xl">🔬</div>
+                      <div className="text-xs">Figure coming soon</div>
                     </div>
                   )}
                 </div>
                 {/* Text */}
-                <div className="flex flex-col flex-1 p-7">
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <span className="text-sm font-bold px-2.5 py-1 rounded-lg shrink-0"
+                <div className="flex flex-col flex-1 p-4">
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-md shrink-0"
                       style={{ background: `${gold}25`, color: gold }}>
                       {p.venue} · {p.year}
                     </span>
-                    {p.note && <span className="text-sm text-zinc-400 italic text-right leading-snug">{p.note}</span>}
+                    {p.note && <span className="text-xs text-zinc-500 italic text-right leading-snug">{p.note}</span>}
                   </div>
-                  <div className="text-lg md:text-xl font-semibold leading-snug flex-1">{p.title}</div>
-                  <div className="mt-3 text-sm text-zinc-500 leading-relaxed">{p.authors}</div>
-                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                  <div className="text-sm font-semibold leading-snug flex-1">{p.title}</div>
+                  <div className="mt-2 text-xs text-zinc-500 leading-relaxed">{p.authors}</div>
+                  <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ color: gold }}>
-                    Read paper <ArrowRight size={14} />
+                    Read paper <ArrowRight size={11} />
                   </div>
                 </div>
               </a>
@@ -686,39 +691,39 @@ function HomePage({ navigate }) {
           </div>
 
           {/* Recent */}
-          <div className="mb-10">
+          <div className="mb-8">
             <h2 className={H2}>Recent Publications</h2>
             <p className={`${SUBHEAD} max-w-xl`}>Latest work from the lab.</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {recentPapers.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer"
                 className={`${CARD} group flex flex-col overflow-hidden`}>
                 {/* Figure / image area */}
-                <div className="aspect-square bg-zinc-900 overflow-hidden">
+                <div className="aspect-[4/3] bg-zinc-900 overflow-hidden">
                   {p.img ? (
                     <img src={p.img} alt={p.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-zinc-700">
-                      <div className="text-4xl">🔬</div>
-                      <div className="text-sm">Figure coming soon</div>
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-1.5 text-zinc-700">
+                      <div className="text-2xl">🔬</div>
+                      <div className="text-xs">Figure coming soon</div>
                     </div>
                   )}
                 </div>
                 {/* Text */}
-                <div className="flex flex-col flex-1 p-7">
-                  <div className="mb-4">
-                    <span className="text-sm font-bold px-2.5 py-1 rounded-lg"
+                <div className="flex flex-col flex-1 p-4">
+                  <div className="mb-2">
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-md"
                       style={{ background: `${gold}18`, color: gold }}>
                       {p.venue} · {p.year}
                     </span>
                   </div>
-                  <div className="text-lg md:text-xl font-semibold leading-snug flex-1">{p.title}</div>
-                  <div className="mt-3 text-sm text-zinc-500 leading-relaxed">{p.authors}</div>
-                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                  <div className="text-sm font-semibold leading-snug flex-1">{p.title}</div>
+                  <div className="mt-2 text-xs text-zinc-500 leading-relaxed">{p.authors}</div>
+                  <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ color: gold }}>
-                    Read paper <ArrowRight size={14} />
+                    Read paper <ArrowRight size={11} />
                   </div>
                 </div>
               </a>
