@@ -930,13 +930,13 @@ export default function App() {
                      linear-gradient(180deg, #0A0A0A 0%, #0D0D0D 50%, #070707 100%)`,
       }}
     >
-      <Nav page={page} navigate={navigate} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <AnimatePresence mode="wait">
         <motion.div key={page}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.25 }}>
+          <Nav page={page} navigate={navigate} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
           {page === "people"
             ? <PeoplePage navigate={navigate} />
             : <HomePage navigate={navigate} />
