@@ -86,6 +86,7 @@ const research = [
 // ║    venue: "Nature",  year: "2024",                                           ║
 // ║    url: "https://doi.org/...",                                               ║
 // ║    note: "Cover Article",  // optional — award/coverage note                ║
+// ║    img: base("papers/filename.png"),  // optional — upload to public/papers/ ║
 // ║    tags: ["keyword1", "keyword2"],                                           ║
 // ║  },                                                                          ║
 // ╚══════════════════════════════════════════════════════════════════════════════╝
@@ -134,6 +135,7 @@ const landmarkPapers = [
 // ║    authors: "A. Author, B. Author, J. Valentine",                            ║
 // ║    venue: "Nature Photonics",  year: "2025",                                 ║
 // ║    url: "https://doi.org/10.xxxx/xxxxx",                                     ║
+// ║    img: base("papers/filename.png"),  // optional — upload to public/papers/ ║
 // ║    tags: ["keyword1", "keyword2", "keyword3"],                               ║
 // ║  },                                                                          ║
 // ╚══════════════════════════════════════════════════════════════════════════════╝
@@ -650,24 +652,34 @@ function HomePage({ navigate }) {
           <div className="grid md:grid-cols-2 gap-6 mb-20">
             {landmarkPapers.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer"
-                className={`${CARD} group flex flex-col p-8 md:p-9`}>
-                <div className="flex items-start justify-between gap-4 mb-5">
-                  <span className="text-base font-bold px-3 py-1.5 rounded-lg shrink-0"
-                    style={{ background: `${gold}25`, color: gold }}>
-                    {p.venue} · {p.year}
-                  </span>
-                  {p.note && <span className="text-sm text-zinc-400 italic text-right leading-snug">{p.note}</span>}
+                className={`${CARD} group flex flex-col overflow-hidden`}>
+                {/* Figure / image area */}
+                <div className="aspect-square bg-zinc-900 overflow-hidden">
+                  {p.img ? (
+                    <img src={p.img} alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-zinc-700">
+                      <div className="text-4xl">🔬</div>
+                      <div className="text-sm">Figure coming soon</div>
+                    </div>
+                  )}
                 </div>
-                <div className="text-xl md:text-2xl font-semibold leading-snug flex-1">{p.title}</div>
-                <div className="mt-4 text-base text-zinc-500 leading-relaxed">{p.authors}</div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="text-sm px-3 py-1 rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400">{t}</span>
-                  ))}
-                </div>
-                <div className="mt-6 inline-flex items-center gap-2 text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ color: gold }}>
-                  Read paper <ArrowRight size={16} />
+                {/* Text */}
+                <div className="flex flex-col flex-1 p-7">
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <span className="text-sm font-bold px-2.5 py-1 rounded-lg shrink-0"
+                      style={{ background: `${gold}25`, color: gold }}>
+                      {p.venue} · {p.year}
+                    </span>
+                    {p.note && <span className="text-sm text-zinc-400 italic text-right leading-snug">{p.note}</span>}
+                  </div>
+                  <div className="text-lg md:text-xl font-semibold leading-snug flex-1">{p.title}</div>
+                  <div className="mt-3 text-sm text-zinc-500 leading-relaxed">{p.authors}</div>
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{ color: gold }}>
+                    Read paper <ArrowRight size={14} />
+                  </div>
                 </div>
               </a>
             ))}
@@ -681,23 +693,33 @@ function HomePage({ navigate }) {
           <div className="grid md:grid-cols-2 gap-6">
             {recentPapers.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer"
-                className={`${CARD} group flex flex-col p-8 md:p-9`}>
-                <div className="mb-4">
-                  <span className="text-base font-bold px-3 py-1.5 rounded-lg"
-                    style={{ background: `${gold}18`, color: gold }}>
-                    {p.venue} · {p.year}
-                  </span>
+                className={`${CARD} group flex flex-col overflow-hidden`}>
+                {/* Figure / image area */}
+                <div className="aspect-square bg-zinc-900 overflow-hidden">
+                  {p.img ? (
+                    <img src={p.img} alt={p.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 text-zinc-700">
+                      <div className="text-4xl">🔬</div>
+                      <div className="text-sm">Figure coming soon</div>
+                    </div>
+                  )}
                 </div>
-                <div className="text-xl md:text-2xl font-semibold leading-snug flex-1">{p.title}</div>
-                <div className="mt-4 text-base text-zinc-500 leading-relaxed">{p.authors}</div>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="text-sm px-3 py-1 rounded-lg border border-white/10 bg-white/[0.03] text-zinc-400">{t}</span>
-                  ))}
-                </div>
-                <div className="mt-6 inline-flex items-center gap-2 text-base font-medium opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ color: gold }}>
-                  Read paper <ArrowRight size={16} />
+                {/* Text */}
+                <div className="flex flex-col flex-1 p-7">
+                  <div className="mb-4">
+                    <span className="text-sm font-bold px-2.5 py-1 rounded-lg"
+                      style={{ background: `${gold}18`, color: gold }}>
+                      {p.venue} · {p.year}
+                    </span>
+                  </div>
+                  <div className="text-lg md:text-xl font-semibold leading-snug flex-1">{p.title}</div>
+                  <div className="mt-3 text-sm text-zinc-500 leading-relaxed">{p.authors}</div>
+                  <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{ color: gold }}>
+                    Read paper <ArrowRight size={14} />
+                  </div>
                 </div>
               </a>
             ))}
