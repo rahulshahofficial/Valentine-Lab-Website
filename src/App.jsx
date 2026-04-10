@@ -492,20 +492,20 @@ function PeoplePage({ navigate }) {
       {/* Join section */}
       <section className={`${SECTION} border-t border-white/[0.05]`} id="prospective">
         <div className={CONTAINER}>
-          <div className={`${CARD} p-8 md:p-12`}>
-            <h2 className="text-3xl md:text-4xl font-bold">Join the Lab</h2>
-            <p className="mt-5 text-xl text-zinc-400 leading-relaxed max-w-2xl">
+          <div className={`${CARD} p-6 md:p-8`}>
+            <h2 className="text-xl md:text-2xl font-bold">Join the Lab</h2>
+            <p className="mt-3 text-sm md:text-base text-zinc-400 leading-relaxed max-w-2xl">
               We're always looking for motivated graduate students and researchers
               passionate about nanophotonics and meta-optics.
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-5 flex flex-wrap gap-3">
               <a href="https://apply.vanderbilt.edu" target="_blank" rel="noopener noreferrer"
-                className="rounded-xl px-6 py-3 text-base font-bold transition hover:opacity-90"
+                className="rounded-xl px-5 py-2.5 text-sm font-bold transition hover:opacity-90"
                 style={{ backgroundColor: gold, color: "#1C1C1C" }}>
                 Apply to Vanderbilt
               </a>
               <a href="mailto:jason.g.valentine@vanderbilt.edu"
-                className="rounded-xl px-6 py-3 text-base font-medium border border-white/20 hover:border-white/40 transition">
+                className="rounded-xl px-5 py-2.5 text-sm font-medium border border-white/20 hover:border-white/40 transition">
                 Email Prof. Valentine
               </a>
             </div>
@@ -784,37 +784,37 @@ function HomePage({ navigate }) {
       {/* ── PROSPECTIVE ───────────────────────────────────────────────────── */}
       <section id="prospective" className={`${SECTION} border-t border-white/[0.05]`}>
         <div className={CONTAINER}>
-          <div className={`${CARD} p-8 md:p-12`}>
-            <div className="grid lg:grid-cols-3 gap-10 items-center">
+          <div className={`${CARD} p-6 md:p-8`}>
+            <div className="grid lg:grid-cols-3 gap-8 items-center">
               <div className="lg:col-span-2">
-                <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold">Join the Lab</h2>
-                <p className="mt-5 text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-2xl">
+                <h2 className="text-xl md:text-2xl font-bold">Join the Lab</h2>
+                <p className="mt-3 text-sm md:text-base text-zinc-400 leading-relaxed max-w-2xl">
                   We are actively seeking motivated graduate students to tackle challenges
                   at the frontier of nanoscale optics and photonics. Apply to Vanderbilt
                   and reach out to Prof. Valentine directly.
                 </p>
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-5 flex flex-wrap gap-3">
                   <a href="https://apply.vanderbilt.edu" target="_blank" rel="noopener noreferrer"
-                    className="rounded-xl px-7 py-3.5 text-lg font-bold transition hover:opacity-90"
+                    className="rounded-xl px-5 py-2.5 text-sm font-bold transition hover:opacity-90"
                     style={{ backgroundColor: gold, color: "#1C1C1C" }}>
                     Apply to Vanderbilt
                   </a>
                   <a href="mailto:jason.g.valentine@vanderbilt.edu"
-                    className="rounded-xl px-7 py-3.5 text-lg font-medium border border-white/20 hover:border-white/40 transition">
+                    className="rounded-xl px-5 py-2.5 text-sm font-medium border border-white/20 hover:border-white/40 transition">
                     Email Prof. Valentine
                   </a>
                 </div>
               </div>
               <div>
-                <div className="rounded-2xl border border-white/10 bg-black/25 p-6 space-y-4">
-                  <div className="text-lg font-semibold">Why Nashville?</div>
-                  <p className="text-lg text-zinc-400 leading-relaxed">
+                <div className="rounded-2xl border border-white/10 bg-black/25 p-5 space-y-3">
+                  <div className="text-sm font-semibold">Why Nashville?</div>
+                  <p className="text-sm text-zinc-400 leading-relaxed">
                     World-class nanofabrication at VINSE, close partnership with Oak Ridge
                     National Laboratory, and a thriving tech and culture hub.
                   </p>
                   <div className="flex flex-wrap gap-2 pt-1">
                     {["VINSE Nanofab", "ORNL partnership", "Nashville"].map(t => (
-                      <span key={t} className="text-sm px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-zinc-400">{t}</span>
+                      <span key={t} className="text-xs px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-zinc-400">{t}</span>
                     ))}
                   </div>
                 </div>
