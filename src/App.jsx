@@ -924,7 +924,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen w-full text-white overflow-x-hidden"
+      className="min-h-screen w-full text-white"
       style={{
         background: `radial-gradient(ellipse 140% 45% at 65% -8%, ${gold}18, transparent),
                      linear-gradient(180deg, #0A0A0A 0%, #0D0D0D 50%, #070707 100%)`,
