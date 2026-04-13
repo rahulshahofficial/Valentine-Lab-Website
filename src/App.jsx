@@ -331,7 +331,7 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
   }
 
   return (
-    <div style={{ position: "static", borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.25)" }}>
+    <div style={{ position: "sticky", top: 0, zIndex: 50, borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(10,10,10,0.85)", backdropFilter: "blur(16px)" }}>
       <div className={`${CONTAINER} py-4 flex items-center justify-between`}>
 
         <button onClick={() => navigate("home")} className="flex items-center gap-4 shrink-0">
