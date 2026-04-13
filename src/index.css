@@ -2,3 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background: radial-gradient(ellipse 140% 45% at 65% -8%, rgba(207,174,112,0.094), transparent),
+              linear-gradient(180deg, #0A0A0A 0%, #0D0D0D 50%, #070707 100%);
+  color: white;
+  min-height: 100vh;
+}
+
