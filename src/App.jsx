@@ -924,24 +924,23 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen w-full text-white"
       style={{
         background: `radial-gradient(ellipse 140% 45% at 65% -8%, ${gold}18, transparent),
                      linear-gradient(180deg, #0A0A0A 0%, #0D0D0D 50%, #070707 100%)`,
+        color: "white",
+        minHeight: "100vh",
       }}
     >
+      <Nav page={page} navigate={navigate} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
       <AnimatePresence mode="wait">
-        <motion.div key={page}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.25 }}>
-          <Nav page={page} navigate={navigate} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-          {page === "people"
-            ? <PeoplePage navigate={navigate} />
-            : <HomePage navigate={navigate} />
-          }
-        </motion.div>
+        {page === "people"
+          ? <motion.div key="people" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+              <PeoplePage navigate={navigate} />
+            </motion.div>
+          : <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
+              <HomePage navigate={navigate} />
+            </motion.div>
+        }
       </AnimatePresence>
     </div>
   );
