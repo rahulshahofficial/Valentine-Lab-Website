@@ -932,16 +932,7 @@ export default function App() {
       }}
     >
       <Nav page={page} navigate={navigate} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
-      <AnimatePresence mode="wait">
-        {page === "people"
-          ? <motion.div key="people" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-              <PeoplePage navigate={navigate} />
-            </motion.div>
-          : <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }}>
-              <HomePage navigate={navigate} />
-            </motion.div>
-        }
-      </AnimatePresence>
+      {page === "people" ? <PeoplePage navigate={navigate} /> : <HomePage navigate={navigate} />}
     </div>
   );
 }
