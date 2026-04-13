@@ -331,7 +331,7 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
   }
 
   return (
-    <header className="border-b border-white/[0.06] bg-black/25">
+    <div style={{ position: "static", borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(0,0,0,0.25)" }}>
       <div className={`${CONTAINER} py-4 flex items-center justify-between`}>
 
         <button onClick={() => navigate("home")} className="flex items-center gap-4 shrink-0">
@@ -401,7 +401,7 @@ function Nav({ page, navigate, mobileOpen, setMobileOpen }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </div>
   );
 }
 
